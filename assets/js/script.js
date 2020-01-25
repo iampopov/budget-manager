@@ -101,6 +101,14 @@ $("#categoryFilter").on("change", function() {
 
 
 
+$("#budgetItems").on('click', '.delete span', function() {
+    //const id = $(this).parents("tr").attr("data-id") //works as below
+    const id = $(this).parents("tr").data("id")
+    alert(id)
+});
+
+
+
 
 
 
