@@ -3,7 +3,7 @@
 // ======================
 
 // 1st: pull initial budgetItems/lastID from localStorage to set initial variables
-const budgetItems = JSON.parse(localStorage.getItem("budgetItems")) || [];
+let budgetItems = JSON.parse(localStorage.getItem("budgetItems")) || [];
 let lastID = parseInt(localStorage.getItem("lastID")) || 0;
 
 
@@ -103,8 +103,12 @@ $("#categoryFilter").on("change", function() {
 
 $("#budgetItems").on('click', '.delete span', function() {
     //const id = $(this).parents("tr").attr("data-id") //works as below
-    const id = $(this).parents("tr").data("id")
-    alert(id)
+    const id = parseInt($(this).parents("tr").data("id"));
+    const remainingItems = budgetItems.filter(item => item.id !== id);
+    budgetItems = remainingItems;
+    updateStorage();
+    renderItems();
+    $("#categoryFilter").val("")
 });
 
 
