@@ -33,6 +33,7 @@ const renderItems = items => {
 // ======================
 // MAIN PROCESS
 // ======================
+renderItems();
 
 // 2nd: wire up click event on 'Enter New Budget Item' button to toggle display of form
 $("#toggleFormButton, #hideForm").on("click", function() {
@@ -73,8 +74,10 @@ $("#addItem").on("click", function(e) {
 
     budgetItems.push(newItem);
     $("#addItemForm form")[0].reset();
-    //update local storage
-    //rerender budget items
+    
+    updateStorage();//update local storage
+    
+    renderItems();//rerender budget items
 
 })
 
