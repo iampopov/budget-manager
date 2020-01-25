@@ -25,7 +25,18 @@ let lastID = parseInt(localStorage.getItem("lastID")) || 0;
 // ======================
 
 // 2nd: wire up click event on 'Enter New Budget Item' button to toggle display of form
-
+$("#toggleFormButton").on("click", function() {
+    const addItemForm = $("#addItemForm")
+    const toggleButton = $("#toggleFormButton")
+    
+    addItemForm.toggle("slow", () => {
+        if (addItemForm.is(":visible")) {
+            toggleButton.text("Hide Form");
+        } else {
+            toggleButton.text("Enter New Budget Item");
+        }
+    });
+});
 
 // 3rd: wire up click event on 'Add Budget Item' button, gather user input and add item to budgetItems array
 // (each item's object should include: id / date / name / category / amount / notes)... then clear the form
