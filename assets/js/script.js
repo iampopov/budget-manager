@@ -58,11 +58,12 @@ $("#addItem").on("click", function(e) {
     if (!newItem.name || !newItem.category || !newItem.amount) {
         //if we failed validation
         return alert('You must specify name, category, and amount for each budget item!')
-        //return false; //same thing
-    } else {
+        //return false; //same thing as above
+    } 
 
-    }
-
+    budgetItems.push(newItem);
+    //update local storage
+    //rerender budget items
 
 })
 
