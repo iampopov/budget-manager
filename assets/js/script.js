@@ -12,12 +12,19 @@ let lastID = parseInt(localStorage.getItem("lastID")) || 0;
 // ======================
 
 // 4th: function to update localStorage with latest budgetItems and latest lastID
-
+const updateStorage = () => {
+    localStorage.setItem("budgetItems", JSON.stringify(budgetItems));
+    localStorage.setItem("lastID", lastID);
+}
 
 // 5th: function to render budgetItems on table; each item should be rendered in this format:
 // <tr data-id="2"><td>Oct 14, 2019 5:08 PM</td><td>November Rent</td><td>Rent/Mortgage</td><td>1300</td><td>Fill out lease renewal form!</td><td class="delete"><span>x</span></td></tr>
 // also, update total amount spent on page (based on selected category):
+const renderItems = items => {
+    if (!items) items = budgetItems;
 
+    
+}
 
 
 // ======================
@@ -62,6 +69,7 @@ $("#addItem").on("click", function(e) {
     } 
 
     budgetItems.push(newItem);
+    $("#addItemForm form")[0].reset();
     //update local storage
     //rerender budget items
 
