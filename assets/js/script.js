@@ -3,7 +3,8 @@
 // ======================
 
 // 1st: pull initial budgetItems/lastID from localStorage to set initial variables
-
+const budgetItems = JSON.parse(localStorage.getItem("budgetItems")) || [];
+let lastID = parseInt(localStorage.getItem("lastID")) || 0;
 
 
 // ======================
