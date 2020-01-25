@@ -25,23 +25,38 @@ let lastID = parseInt(localStorage.getItem("lastID")) || 0;
 // ======================
 
 // 2nd: wire up click event on 'Enter New Budget Item' button to toggle display of form
-$("#toggleFormButton").on("click", function() {
+$("#toggleFormButton, #hideForm").on("click", function() {
     const addItemForm = $("#addItemForm")
-    const toggleButton = $("#toggleFormButton")
+    //const toggleButton = $("#toggleFormButton")
     
     addItemForm.toggle("slow", () => {
-        if (addItemForm.is(":visible")) {
-            toggleButton.text("Hide Form");
-        } else {
-            toggleButton.text("Enter New Budget Item");
-        }
+        $("#toggleFormButton").text(addItemForm.is(":visible") ? "Hide Form" : "Enter New Budget Item");//ternary op.
+        //instead of this:
+        // if (addItemForm.is(":visible")) {
+        //     toggleButton.text("Hide Form");
+        // } else {
+        //     toggleButton.text("Enter New Budget Item");
+        // }
     });
 });
 
 // 3rd: wire up click event on 'Add Budget Item' button, gather user input and add item to budgetItems array
 // (each item's object should include: id / date / name / category / amount / notes)... then clear the form
 // fields and trigger localStorage update/budgetItems rerender functions, once created
+$("#addItem").on("click", function(e) {
+    e.preventDefault();
 
+    const newItem = {
+        id: ++lastID, // increment and store in one step on the same line instead of lastID ++ and then calling id: lastID
+        date: moment().format("lll"),
+        name: $("#name").val().trim(),
+        category: $("#category").val(),
+        amount: $("#amount").val().trim(),
+        notes: $("#notes").val().trim()
+    }
+
+    console.log(newItem)
+})
 
 // 6th: wire up change event on the category select menu, show filtered budgetItems based on selection
 
