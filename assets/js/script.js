@@ -55,7 +55,15 @@ $("#addItem").on("click", function(e) {
         notes: $("#notes").val().trim()
     }
 
-    console.log(newItem)
+    if (!newItem.name || !newItem.category || !newItem.amount) {
+        //if we failed validation
+        return alert('You must specify name, category, and amount for each budget item!')
+        //return false; //same thing
+    } else {
+
+    }
+
+
 })
 
 // 6th: wire up change event on the category select menu, show filtered budgetItems based on selection
