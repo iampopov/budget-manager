@@ -23,7 +23,9 @@ const updateStorage = () => {
 const renderItems = items => {
     if (!items) items = budgetItems;
 
-    
+    for (const item of items) {
+        const row = `<tr data-id="2"><td>Oct 14, 2019 5:08 PM</td><td>November Rent</td><td>Rent/Mortgage</td><td>1300</td><td>Fill out lease renewal form!</td><td class="delete"><span>x</span></td></tr>`
+    }
 }
 
 
