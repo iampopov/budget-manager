@@ -22,10 +22,11 @@ const updateStorage = () => {
 // also, update total amount spent on page (based on selected category):
 const renderItems = items => {
     if (!items) items = budgetItems;
-
+    const tBody = $("#budgetItems tbody");
+    tBody.empty();
     for (const item of items) {
         const row = `<tr data-id=${item.id}><td>${item.date}</td><td>${item.name}</td><td>${item.category}</td><td>${item.amount}</td><td>${item.note}</td><td class="delete"><span>x</span></td></tr>`
-        $("#budgetItems tbody").append(row);
+        tBody.append(row);
     }
 }
 
