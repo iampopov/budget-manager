@@ -25,7 +25,7 @@ const renderItems = items => {
     const tBody = $("#budgetItems tbody");
     tBody.empty();
     for (const item of items) {
-        const row = `<tr data-id=${item.id}><td>${item.date}</td><td>${item.name}</td><td>${item.category}</td><td>${item.amount}</td><td>${item.note}</td><td class="delete"><span>x</span></td></tr>`
+        const row = `<tr data-id=${item.id}><td>${item.date}</td><td>${item.name}</td><td>${item.category}</td><td>$${parseFloat(item.amount).toFixed(2)}</td><td>${item.note}</td><td class="delete"><span>x</span></td></tr>`
         tBody.append(row);
     }
 }
