@@ -84,6 +84,8 @@ $("#addItem").on("click", function(e) {
     
     renderItems();//rerender budget items
 
+    $("#categoryFilter").val("")
+
 })
 
 // 6th: wire up change event on the category select menu, show filtered budgetItems based on selection
